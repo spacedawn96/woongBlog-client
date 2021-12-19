@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
-export type HeaderMenuItemProps = {};
+export type HeaderMenuItemProps = {
+  icon: React.ReactNode;
+  text: string;
+};
 
-function HeaderMenuItem({}: HeaderMenuItemProps) {
+function HeaderMenuItem(props: HeaderMenuItemProps) {
   return (
-    <HeaderMenuItemBlock>
-      <div>snippet</div>
-      <div>snippet</div>
-      <div>snippet</div>
-    </HeaderMenuItemBlock>
+    <>
+      <HeaderMenuItemBlock>
+        {props.icon}
+        {props.text}
+      </HeaderMenuItemBlock>
+    </>
   );
 }
 

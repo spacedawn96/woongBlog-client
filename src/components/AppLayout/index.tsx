@@ -1,15 +1,32 @@
 import styled from 'styled-components';
 
-export type APPLayoutProps = {};
+export type AppLayoutProps = {};
 
-function APPLayout({}: APPLayoutProps) {
+function MainNav({ children }) {
+  return <div>{children}</div>;
+}
+export default function AppLayout({ leftNav, centerContent, rightContent }) {
   return (
-    <APPLayoutBlock>
-      <div>snippet</div>
-    </APPLayoutBlock>
+    <div>
+      {leftNav}
+      {centerContent}
+      {rightContent}
+    </div>
   );
 }
+function LeftNav({ children }) {
+  return <div>{children}</div>;
+}
+function CenterContent({ children }) {
+  return <div>{children}</div>;
+}
+function RightContent({ children }) {
+  return <div>{children}</div>;
+}
 
-const APPLayoutBlock = styled.div``;
+AppLayout.MainNav = MainNav;
+AppLayout.LeftNav = LeftNav;
+AppLayout.CenterContent = CenterContent;
+AppLayout.RightContent = RightContent;
 
-export default APPLayout;
+const AppLayoutBlock = styled.div``;
