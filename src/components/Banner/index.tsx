@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../Common/TailButton';
 
 export type BannerProps = {};
 
@@ -9,6 +10,17 @@ function Banner({}: BannerProps) {
         📹 New! Remote User Testing - Get video + voice feedback on designs and
         prototypes
       </BannerText>
+      {/* <CustomButton
+        border
+        color='darkGray'
+        style={{ marginRight: '1.25rem' }}
+        to='/write'
+        className='write-button'
+      >
+        새 글 작성
+      </CustomButton> */}
+
+      <Button className='text-sm !font-medium'>Read More</Button>
     </BannerBlock>
   );
 }
@@ -16,6 +28,9 @@ function Banner({}: BannerProps) {
 const BannerBlock = styled.div`
   height: 3.125rem;
   background-color: #7e5bef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const BannerText = styled.div`
@@ -28,6 +43,6 @@ const BannerText = styled.div`
   justify-content: center;
   align-items: center;
   height: 3.125rem;
-  outline: rgb(255, 0, 0) dashed 1px;
+  margin-right: 15px;
 `;
 export default Banner;

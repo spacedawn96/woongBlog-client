@@ -22,6 +22,7 @@ const Home: NextPage = () => {
           },
         ]}
       />
+      <div className='border-2 border-gray-800'>hello</div>
     </div>
   );
 };

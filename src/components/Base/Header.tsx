@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import HeaderMenuItem from './HeaderMenuItem';
+import {
+  Popover,
+  Position,
+  Menu,
+  PeopleIcon,
+  CircleArrowRightIcon,
+  EditIcon,
+  TrashIcon,
+  Button,
+} from 'evergreen-ui';
 
 export type HeaderProps = {
   primaryItems: any;
@@ -13,8 +23,8 @@ function Header({ primaryItems }: HeaderProps) {
         <li>
           <div>
             <svg
-              width='171'
-              height='44'
+              width='100'
+              height='30'
               viewBox='0 0 171 44'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
@@ -36,6 +46,28 @@ function Header({ primaryItems }: HeaderProps) {
             <HeaderMenuItem {...itemProps} />
           </li>
         ))}
+        <Popover
+          position={Position.BOTTOM_LEFT}
+          content={
+            <Menu>
+              <Menu.Group>
+                <Menu.Item icon={PeopleIcon}>Share...</Menu.Item>
+                <Menu.Item icon={CircleArrowRightIcon}>Move...</Menu.Item>
+                <Menu.Item icon={EditIcon} secondaryText='⌘R'>
+                  Rename...
+                </Menu.Item>
+              </Menu.Group>
+              <Menu.Divider />
+              <Menu.Group>
+                <Menu.Item icon={TrashIcon} intent='danger'>
+                  Delete...
+                </Menu.Item>
+              </Menu.Group>
+            </Menu>
+          }
+        >
+          <Button marginRight={16}>With Icons</Button>
+        </Popover>
       </HeaderUlBlock>
     </HeaderBlock>
   );
@@ -45,6 +77,9 @@ const HeaderBlock = styled.nav`
   border: 1px solid red;
   width: 70%;
   margin: 0 auto;
+  height: 5.8125rem;
+  display: flex;
+  align-items: center;
 `;
 
 const HeaderUlBlock = styled.ul`
