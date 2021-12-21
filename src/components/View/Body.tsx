@@ -1,15 +1,11 @@
-import styled from 'styled-components';
-
 export type BodyProps = {};
 
 function Body({}: BodyProps) {
   return (
-    <BodyBlock>
+    <div>
       <div>snippet</div>
-    </BodyBlock>
+    </div>
   );
 }
-
-const BodyBlock = styled.div``;
 
 export default Body;

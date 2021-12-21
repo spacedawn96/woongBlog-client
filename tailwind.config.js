@@ -1,75 +1,67 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+    return `rgb(var(${variableName}))`;
+  };
+}
 
 module.exports = {
-  mode: 'jit',
+  mode: process.env.NODE_ENV ? 'jit' : undefined,
   darkMode: 'class',
+  content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   variants: {
     opacity: ['responsive', 'hover', 'focus', 'dark', 'group-hover'],
     boxShadow: ['responsive', 'hover', 'focus', 'dark'],
     animation: ['responsive', 'motion-safe', 'motion-reduce'],
     transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
   },
-  purge: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-  ],
+
   theme: {
     screens: {
       md: '640px',
       lg: '1024px',
       xl: '1500px', // this is the "design resolution"
     },
-    colors: {
-      // color scheme is defined in /app.css
-      transparent: 'transparent',
-      current: 'currentColor',
-      white: 'var(--color-white)',
-      black: 'var(--color-black)',
-
-      gray: {
-        100: 'var(--color-gray-100)',
-        200: 'var(--color-gray-200)',
-        300: 'var(--color-gray-300)',
-        400: 'var(--color-gray-400)',
-        500: 'var(--color-gray-500)',
-        600: 'var(--color-gray-600)',
-        700: 'var(--color-gray-700)',
-        800: 'var(--color-gray-800)',
-        900: 'var(--color-gray-900)',
-      },
-      blueGray: {
-        500: 'var(--color-blueGray-500)',
-      },
-      team: {
-        unknown: 'var(--color-team-unknown)',
-        current: 'var(--color-team-current)',
-        yellow: 'var(--color-team-yellow)',
-        blue: 'var(--color-team-blue)',
-        red: 'var(--color-team-red)',
-      },
-      yellow: {
-        500: 'var(--color-yellow-500)',
-      },
-      blue: {
-        100: 'var(--color-blue-100)',
-        500: 'var(--color-blue-500)',
-      },
-      red: {
-        500: 'var(--color-red-500)',
-      },
-      green: {
-        100: 'var(--color-green-100)',
-        500: 'var(--color-green-500)',
-        600: 'var(--color-green-600)',
-      },
+    fontFamily: {
+      primary: ['Inter', ...fontFamily.sans],
     },
 
-    extend: {
-      zIndex: {
-        '-10': '-10',
+    keyframes: {
+      flicker: {
+        '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
+          opacity: 0.99,
+          filter:
+            'drop-shadow(0 0 1px rgba(252, 211, 77)) drop-shadow(0 0 15px rgba(245, 158, 11)) drop-shadow(0 0 1px rgba(252, 211, 77))',
+        },
+        '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': {
+          opacity: 0.4,
+          filter: 'none',
+        },
       },
-      fontFamily: {
-        sans: ['Matter', ...defaultTheme.fontFamily.sans],
+      tilt: {
+        '0%, 50%, 100%': {
+          transform: 'rotate(0deg)',
+        },
+        '25%': {
+          transform: 'rotate(0.5deg)',
+        },
+        '75%': {
+          transform: 'rotate(-0.5deg)',
+        },
+      },
+    },
+    animation: {
+      flicker: 'flicker 3s linear infinite',
+      tilt: 'tilt 10s infinite linear',
+    },
+    extend: {
+      maxWidth: {
+        '9xl': '82.5rem',
+        '8xl': '96rem',
       },
       fontSize: {
         xl: '1.375rem', // 22px
@@ -80,9 +72,6 @@ module.exports = {
         '6xl': '3.75rem', // 60px
         '7xl': '4.375rem', // 70px
       },
-      gridTemplateRows: {
-        'max-content': 'max-content',
-      },
       spacing: {
         '5vw': '5vw', // pull featured sections and navbar in the margin
         '8vw': '8vw', // positions hero img inside the margin
@@ -90,9 +79,6 @@ module.exports = {
       },
       height: {
         hero: 'min(60rem, calc(100vh - 10rem))', // screen - navbar height (lg: only)
-      },
-      maxWidth: {
-        '8xl': '96rem',
       },
       maxHeight: {
         '50vh': '50vh', // max height for medium size hero images
@@ -102,10 +88,9 @@ module.exports = {
         '-135': '-135deg',
         135: '135deg',
       },
-
-      typography: (theme) => {
+      typography: theme => {
         // some fontSizes return [size, props], others just size :/
-        const fontSize = (size) => {
+        const fontSize = size => {
           const result = theme(`fontSize.${size}`);
           return Array.isArray(result) ? result[0] : result;
         };
@@ -315,9 +300,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [],
 };

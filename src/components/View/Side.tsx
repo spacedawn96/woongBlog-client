@@ -1,15 +1,11 @@
-import styled from 'styled-components';
-
 export type SideProps = {};
 
 function Side({}: SideProps) {
   return (
-    <SideBlock>
+    <div>
       <div>snippet</div>
-    </SideBlock>
+    </div>
   );
 }
-
-const SideBlock = styled.div``;
 
 export default Side;

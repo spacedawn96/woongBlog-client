@@ -75,8 +75,7 @@ export default function CloudinaryImg({
         ...(mdx && width <= 800 ? { maxWidth: width } : {}),
         ...style,
       }}
-      {...rest}
-    >
+      {...rest}>
       <div
         style={{
           position: 'relative',
@@ -86,9 +85,8 @@ export default function CloudinaryImg({
             : `${(+height / +width) * 100}%`,
           cursor: preview ? 'zoom-in' : 'default',
         }}
-        className='img-blur'
-        onClick={preview ? () => setIsOpen(true) : undefined}
-      >
+        className="img-blur"
+        onClick={preview ? () => setIsOpen(true) : undefined}>
         <style jsx>{`
           .img-blur::before {
             content: '';
@@ -101,19 +99,11 @@ export default function CloudinaryImg({
             background-size: 100%;
           }
         `}</style>
-        <div className='absolute top-0 left-0'>
-          <Image
-            width={width}
-            height={height}
-            src={url}
-            alt={alt}
-            title={title || alt}
-          />
+        <div className="absolute top-0 left-0">
+          <Image width={width} height={height} src={url} alt={alt} title={title || alt} />
         </div>
       </div>
-      {isOpen && (
-        <Lightbox mainSrc={url} onCloseRequest={() => setIsOpen(false)} />
-      )}
+      {isOpen && <Lightbox mainSrc={url} onCloseRequest={() => setIsOpen(false)} />}
     </figure>
   );
 }

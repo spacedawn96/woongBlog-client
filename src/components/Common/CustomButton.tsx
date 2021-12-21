@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 type ButtonSize = 'SMALL' | 'DEFAULT' | 'LARGE';
 
 export type CustomButtonProps = {
@@ -32,27 +30,5 @@ function CustomButton({}: CustomisingButtonProps) {
     </button>
   );
 }
-
-const CustomButtonBlock = styled.div`
-  border-radius: 15px;
-  border: 1px solid #ffff;
-  height: 1.875rem;
-  width: 5.625rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.875rem;
-  min-width: 1.875rem;
-  font-size: 0.75rem;
-  padding: 0 15px;
-  word-break: keep-all;
-`;
-
-const ButtonText = styled.div`
-  font-size: 0.75rem;
-  color: #ffff;
-
-  word-break: keep-all;
-`;
 
 export default CustomButton;

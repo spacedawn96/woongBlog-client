@@ -6,21 +6,10 @@ export type BannerProps = {};
 function Banner({}: BannerProps) {
   return (
     <BannerBlock>
-      <BannerText className='sans'>
-        📹 New! Remote User Testing - Get video + voice feedback on designs and
-        prototypes
+      <BannerText className="sans">
+        📹 New! Remote User Testing - Get video + voice feedback on designs and prototypes
       </BannerText>
-      {/* <CustomButton
-        border
-        color='darkGray'
-        style={{ marginRight: '1.25rem' }}
-        to='/write'
-        className='write-button'
-      >
-        새 글 작성
-      </CustomButton> */}
-
-      <Button className='text-sm !font-medium'>Read More</Button>
+      <Button className="text-sm !font-medium">Read More</Button>
     </BannerBlock>
   );
 }

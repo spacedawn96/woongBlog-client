@@ -1,15 +1,11 @@
-import styled from 'styled-components';
-
 export type ContainerProps = {};
 
 function Container({}: ContainerProps) {
   return (
-    <ContainerBlock>
+    <div>
       <div>snippet</div>
-    </ContainerBlock>
+    </div>
   );
 }
-
-const ContainerBlock = styled.div``;
 
 export default Container;

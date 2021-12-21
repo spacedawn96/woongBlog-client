@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 export type AppLayoutProps = {};
 
 function MainNav({ children }) {
@@ -28,5 +26,3 @@ AppLayout.MainNav = MainNav;
 AppLayout.LeftNav = LeftNav;
 AppLayout.CenterContent = CenterContent;
 AppLayout.RightContent = RightContent;
-
-const AppLayoutBlock = styled.div``;
