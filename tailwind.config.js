@@ -22,12 +22,14 @@ module.exports = {
 
   theme: {
     screens: {
-      md: '640px',
+      md: '900px',
       lg: '1024px',
       xl: '1500px', // this is the "design resolution"
     },
     fontFamily: {
       primary: ['Inter', ...fontFamily.sans],
+      sans: ['Roboto', ...fontFamily.sans],
+      sans: ['Matter', ...fontFamily.sans],
     },
 
     keyframes: {

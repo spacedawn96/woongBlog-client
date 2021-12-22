@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import {
@@ -16,6 +15,7 @@ import {
   XIcon,
 } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
+import styled from 'styled-components';
 
 const solutions = [
   {
@@ -93,10 +93,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Header() {
+export default function Example() {
   return (
     <Popover className="relative bg-white">
-      <div className="max-w-9xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
