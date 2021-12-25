@@ -8,6 +8,7 @@ enum ButtonVariant {
 
 type ButtonProps = {
   isLoading?: boolean;
+  bgColor?: string;
   variant?: keyof typeof ButtonVariant;
 } & React.ComponentPropsWithoutRef<'button'>;
 
@@ -16,6 +17,7 @@ export default function Button({
   className,
   disabled: buttonDisabled,
   isLoading,
+  bgColor,
   variant = 'default',
   ...rest
 }: ButtonProps) {
@@ -26,9 +28,8 @@ export default function Button({
       {...rest}
       disabled={disabled}
       className={clsx(
-        'px-3 py-1 font-bold rounded-2xl',
+        `px-3 py-1 font-bold rounded-2xl bg-${bgColor}`,
         'border border-gray-300 shadow-sm dark:border-gray-600',
-
         'transform-gpu scale-100 hover:scale-[1.03] active:scale-[0.97]',
         'transition duration-100',
         'animate-shadow',

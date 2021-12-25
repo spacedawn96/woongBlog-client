@@ -9,7 +9,7 @@ import UnstyledLink from '../Common/UnstyledLink';
 
 export default function Footer() {
   return (
-    <footer className="pb-2 mt-4">
+    <footer className="pb-2">
       <main className="layout flex flex-col items-center pt-6 border-t dark:border-gray-600">
         <FooterLinks />
 

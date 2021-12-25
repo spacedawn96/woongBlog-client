@@ -23,9 +23,11 @@ function Main({}: MainProps) {
       <MainSubTitle>Subscribe and get our weekly newsletter in your inbox.</MainSubTitle>
       <TailWrapper>
         <TailInput />
-        <div>
-          <Button className="text-sm !font-medium">Learn More</Button>
-        </div>
+        <ButtonWapprer>
+          <Button bgColor="regal-sky" className="text-sm !font-medium">
+            Learn More
+          </Button>
+        </ButtonWapprer>
       </TailWrapper>
     </MainBlock>
   );
@@ -33,14 +35,13 @@ function Main({}: MainProps) {
 
 const MainBlock = styled.div`
   margin: 0 auto;
-  height: 16rem;
+  height: 18rem;
   margin-top: 5rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   ${media.custom(768)} {
-    border: 1px solid red;
   }
 `;
 
@@ -73,6 +74,7 @@ const MainSubTitle = styled.div`
   font-weight: 300;
   line-height: 1.75rem;
   color: #3c4858;
+  font-family: 'Matter';
   ${media.custom(768)} {
     text-align: center;
   }
@@ -80,7 +82,18 @@ const MainSubTitle = styled.div`
 
 const TailWrapper = styled.div`
   ${media.custom(768)} {
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const ButtonWapprer = styled.div`
+  padding-top: 1rem;
+  ${media.custom(768)} {
+    display: flex;
+    justify-content: center;
   }
 `;
 export default Main;

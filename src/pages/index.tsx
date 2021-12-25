@@ -7,6 +7,7 @@ import Grid from '../components/Grid';
 import Main from '../components/Main';
 import Next from '../components/Next';
 import React, { useRef, useEffect } from 'react';
+import FloatingHeader from '../components/Common/Floating';
 
 const Home: NextPage = () => {
   // if (process.browser) {
@@ -121,12 +122,16 @@ const Home: NextPage = () => {
         <canvas></canvas>
       </C> */}
       <Banner />
-
       <Header />
+      <FloatingHeader />
 
       <Main />
-      <Grid />
-      <Next />
+      <C>
+        <Grid />
+      </C>
+      <E>
+        <Next />
+      </E>
       <Footer />
     </>
   );
@@ -134,6 +139,9 @@ const Home: NextPage = () => {
 
 export default Home;
 const C = styled.div`
-  position: absolute;
-  z-index: -1;
+  margin: 6rem 0;
+`;
+
+const E = styled.div`
+  height: 100%;
 `;

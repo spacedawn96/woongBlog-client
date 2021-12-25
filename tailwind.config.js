@@ -22,9 +22,15 @@ module.exports = {
 
   theme: {
     screens: {
+      si: '768px',
       md: '900px',
       lg: '1024px',
-      xl: '1500px', // this is the "design resolution"
+      xl: '1500px', // this is the "design resolution",
+      m2xl: { max: '1440px' },
+      mxl: { max: '1200px' },
+      mlg: { max: '1024px' },
+      mmd: { max: '768px' },
+      msm: { max: '375px' },
     },
     fontFamily: {
       primary: ['Inter', ...fontFamily.sans],
@@ -61,6 +67,9 @@ module.exports = {
       tilt: 'tilt 10s infinite linear',
     },
     extend: {
+      colors: {
+        'regal-sky': '#1fb6ff',
+      },
       maxWidth: {
         '9xl': '82.5rem',
         '8xl': '96rem',
