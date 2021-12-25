@@ -2,9 +2,9 @@
   "name": "gg",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "yarn next dev",
+    "build": "yarn next build",
+    "start": "yarn next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -16,11 +16,11 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "cloudinary-build-url": "^0.2.1",
     "clsx": "^1.1.1",
-    "next": "12.0.7",
+    "next": "^12.0.7",
     "postcss": "^8.4.5",
-    "react": "17.0.2",
+    "react": "^18.0.0-rc.0",
     "react-copy-to-clipboard": "^5.0.4",
-    "react-dom": "17.0.2",
+    "react-dom": "^18.0.0-rc.0",
     "react-feather": "^2.0.9",
     "react-icons": "^4.3.1",
     "react-image-lightbox": "^5.1.4",

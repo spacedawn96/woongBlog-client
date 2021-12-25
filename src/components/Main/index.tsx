@@ -24,8 +24,10 @@ function Main({}: MainProps) {
       <TailWrapper>
         <TailInput />
         <ButtonWapprer>
-          <Button bgColor="regal-sky" className="text-sm !font-medium">
-            Learn More
+          <Button
+            bgColor="regal-sky"
+            className="text-sm !font-medium w-36 h-10  !rounded-full">
+            Search Now
           </Button>
         </ButtonWapprer>
       </TailWrapper>

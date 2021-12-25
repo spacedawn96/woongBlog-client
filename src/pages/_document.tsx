@@ -1,8 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-export default class MyDocument extends Document {
-  render() {
-    return (
+export default function MyDocument() {
+  return (
+    <>
       <Html lang="en">
         <Head>
           <link rel="preload" href="/fonts/GraphikBlack.otf" as="font" crossOrigin="" />
@@ -36,6 +36,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
-  }
+    </>
+  );
 }
